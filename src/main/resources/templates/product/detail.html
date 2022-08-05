@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+    <div class="container">
+        <main>
+            <div class="row col" >
+                <div class="card" >
+                    <img th:src="@{|/assets/images/${item.image}|}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <ul class="cart-text">
+                            <li>[[${item.name}]]</li>
+                            <li>[[${item.price}]]</li>
+                            <li>[[${item.createDate}]]</li>
+                            <li>[[${item.category.name}]]</li>
+                        </ul>
+                        <button  
+                         class="btn btn-primary">
+                            Mua ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- <img th:src="@{|/assets/images/${item.image}|}" alt="">
+             -->
+            <hr>
+            <div class="row col">
+                <div class="card" >
+                    <div class="card-header" style="background-color: darkorange;">
+                        Hàng Cùng loại
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li th:each=" p: ${item.category.products}">
+                            <a th:href="@{|/product/detail/${p.id}|}">
+                                <!-- <img th:src="@{|/assets/images/${p.image}|}" alt=""> -->
+                                [[${p.name}]]
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

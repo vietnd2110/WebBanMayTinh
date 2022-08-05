@@ -1,0 +1,13 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+    <div class="card" style="width: 14rem; margin-top: 16px;">
+        <div class="card-header" style="background-color:chartreuse">
+            Danh mục
+        </div>
+        <ul class="list-group list-group-flush">
+            <a class="list-group-item" th:each="c: ${cates}" th:href="@{|/product/list?cid=${c.id}|}">
+                [[${c.name}]]
+            </a>
+
+        </ul>
+    </div>
+</div>
